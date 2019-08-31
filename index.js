@@ -23,10 +23,12 @@ app.post('/subscribe', (req, res) => {
 
     const payload = JSON.stringify({'title': 'Push Test'});
 
-    webpush.sendNotification(subscription, payload)
-    .catch(err => {
-        console.error(err)
-    });
+    setTimeout(() => {
+        webpush.sendNotification(subscription, payload)
+        .catch(err => {
+            console.error(err)
+        });
+    }, 1);
 });
 
 const PORT = 5000;
